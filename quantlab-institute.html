@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuantLab Institute</title>
+  <meta name="description" content="QuantLab Institute — a research-grade institution translating rigorous STEM competence into quantitative finance fluency through verifiable, project-based education." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+
+      --color-bg: #f6f4ef;
+      --color-surface: #fbfaf7;
+      --color-surface-2: #f0ede7;
+      --color-surface-offset: #e6e1d9;
+      --color-border: #d6d0c7;
+      --color-divider: #ddd7ce;
+      --color-text: #181714;
+      --color-text-muted: #62605a;
+      --color-text-faint: #8f8a81;
+      --color-text-inverse: #f9f8f4;
+      --color-primary: #0f5d68;
+      --color-primary-hover: #0b4b53;
+      --color-primary-highlight: #d7e3e4;
+      --color-success: #3e6f22;
+      --radius-sm: 0.375rem; --radius-md: 0.6rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(20,19,17,0.06);
+      --shadow-md: 0 10px 30px rgba(20,19,17,0.08);
+      --content-default: 1120px;
+      --font-body: 'IBM Plex Sans', sans-serif;
+      --font-display: 'IBM Plex Serif', serif;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-theme="dark"] {
+      --color-bg: #131313;
+      --color-surface: #1b1b1a;
+      --color-surface-2: #22211f;
+      --color-surface-offset: #2b2926;
+      --color-border: #393633;
+      --color-divider: #302d2a;
+      --color-text: #ebe7df;
+      --color-text-muted: #b7b1a7;
+      --color-text-faint: #878177;
+      --color-text-inverse: #0e0e0d;
+      --color-primary: #63aab4;
+      --color-primary-hover: #8bc2ca;
+      --color-primary-highlight: #203136;
+      --color-success: #88bf64;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.22);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
+    img, svg { display: block; max-width: 100%; }
+    a, button { transition: all var(--transition-interactive); }
+    button { cursor: pointer; border: 0; background: none; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    .skip-link {
+      position: absolute; left: var(--space-4); top: -3rem; background: var(--color-primary); color: var(--color-text-inverse);
+      padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); z-index: 1000;
+    }
+    .skip-link:focus { top: var(--space-4); }
+    .container { width: min(calc(100% - 2rem), var(--content-default)); margin-inline: auto; }
+    .section { padding: clamp(var(--space-10), 7vw, var(--space-24)) 0; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3);
+      border: 1px solid rgba(15,93,104,0.16); background: var(--color-primary-highlight); border-radius: var(--radius-full);
+      color: var(--color-primary); font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .muted { color: var(--color-text-muted); }
+    .hero-title, h2, h3 { font-family: var(--font-display); line-height: 1.08; }
+    .hero-title { font-size: clamp(2.6rem, 6vw, 5.4rem); max-width: 11ch; }
+    h2 { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+    h3 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+    p { max-width: 70ch; }
+    .header {
+      position: sticky; top: 0; z-index: 100; backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent); border-bottom: 1px solid var(--color-divider);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 74px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: var(--space-3); font-weight: 600; }
+    .brand-mark {
+      width: 42px; height: 42px; padding: 8px; border-radius: 12px; background: var(--color-surface-2); border: 1px solid var(--color-border);
+    }
+    .nav-links { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+    .nav-links a { color: var(--color-text-muted); font-size: var(--text-sm); }
+    .nav-links a:hover { color: var(--color-text); }
+    .theme-toggle {
+      width: 44px; height: 44px; display: inline-grid; place-items: center; border-radius: var(--radius-full);
+      border: 1px solid var(--color-border); background: var(--color-surface);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.2fr 0.9fr; gap: clamp(var(--space-8), 4vw, var(--space-16)); align-items: end;
+    }
+    .hero-copy p { font-size: var(--text-lg); color: var(--color-text-muted); margin-top: var(--space-5); }
+    .hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-8); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0.9rem 1.15rem;
+      border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary { border-color: var(--color-border); background: var(--color-surface); }
+    .panel {
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2)); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); box-shadow: var(--shadow-md);
+    }
+    .hero-panel { padding: var(--space-6); }
+    .metric-list { display: grid; gap: var(--space-4); }
+    .metric {
+      display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); align-items: center; padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .metric:last-child { border-bottom: 0; padding-bottom: 0; }
+    .metric strong { display: block; font-size: var(--text-lg); }
+    .metric-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--color-primary); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+    .card { padding: var(--space-5); background: var(--color-surface); border: 1px solid rgba(24,23,20,0.1); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+    .card p { color: var(--color-text-muted); }
+    .program-layout { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: var(--space-6); align-items: start; }
+    .timeline { display: grid; gap: var(--space-4); }
+    .timeline-item { padding: var(--space-4); border-left: 2px solid var(--color-primary); background: var(--color-surface); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+    .steps { display: grid; gap: var(--space-3); }
+    .steps li {
+      list-style: none; display: grid; grid-template-columns: 36px 1fr; gap: var(--space-3); align-items: start;
+      padding: var(--space-3) 0; border-bottom: 1px solid var(--color-divider);
+    }
+    .steps li:last-child { border-bottom: 0; }
+    .step-no {
+      width: 36px; height: 36px; display: inline-grid; place-items: center; border-radius: 50%; background: var(--color-primary-highlight); color: var(--color-primary); font-weight: 700; font-size: var(--text-sm);
+    }
+    .audience-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+    .quote { padding: var(--space-6); border-radius: var(--radius-xl); background: var(--color-surface-2); border: 1px solid var(--color-border); }
+    .cta {
+      display: grid; grid-template-columns: 1.2fr auto; gap: var(--space-6); align-items: center; padding: var(--space-8);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 76%, black)); color: var(--color-text-inverse);
+      border-radius: calc(var(--radius-xl) + 0.25rem);
+    }
+    .cta p { color: rgba(249,248,244,0.82); }
+    footer { padding: var(--space-8) 0 var(--space-10); color: var(--color-text-muted); }
+    .footer-line { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; padding-top: var(--space-5); border-top: 1px solid var(--color-divider); }
+    @media (max-width: 900px) {
+      .hero-grid, .program-layout, .cta, .grid-3, .audience-grid { grid-template-columns: 1fr; }
+      .nav { align-items: start; padding: var(--space-4) 0; }
+      .nav-links { justify-content: flex-start; }
+    }
+    @media (max-width: 680px) {
+      .nav { flex-direction: column; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .hero-title { max-width: 9ch; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="QuantLab Institute home">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="8" y="8" width="48" height="48" rx="14" stroke="currentColor" stroke-width="3"></rect>
+          <path d="M18 42L28 22L37 34L46 18" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="46" cy="18" r="3.5" fill="currentColor"></circle>
+        </svg>
+        <span>QuantLab Institute</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#model">Model</a>
+        <a href="#program">Programme</a>
+        <a href="#audience">Audience</a>
+        <a href="#pilot">Pilot</a>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Research-grade quant education</span>
+          <h1 class="hero-title">From STEM depth to quant finance capability.</h1>
+          <p>QuantLab Institute is positioned as a selective, computation-first education institution that turns mathematical and engineering fluency into production-relevant quantitative finance competence through reproducible projects rather than passive exams.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#pilot">Apply for pilot cohort</a>
+            <a class="btn btn-secondary" href="#program">Explore programme design</a>
+          </div>
+        </div>
+        <aside class="panel hero-panel" aria-label="Institution snapshot">
+          <span class="eyebrow">Viable MVP</span>
+          <div class="metric-list" style="margin-top: var(--space-4);">
+            <div class="metric">
+              <span class="metric-dot"></span>
+              <div><strong>Selective first cohort</strong><span class="muted">High-rigor launch before scaling.</span></div>
+            </div>
+            <div class="metric">
+              <span class="metric-dot"></span>
+              <div><strong>Verifiable credential</strong><span class="muted">Assessment through reproducible computational work.</span></div>
+            </div>
+            <div class="metric">
+              <span class="metric-dot"></span>
+              <div><strong>Institutional positioning</strong><span class="muted">A niche alternative to generic finance certificates.</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="model">
+      <div class="container">
+        <span class="eyebrow">Why it is viable</span>
+        <h2>A focused product, not a generic course site.</h2>
+        <p class="muted" style="margin-bottom: var(--space-6);">This MVP translates the submission into a credible landing and conversion website for a specialised institution: narrow positioning, selective admissions, rigorous outputs, and employer-facing proof of competence.</p>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Problem</h3>
+            <p>Advanced STEM graduates often have strong mathematics and coding ability but lack a structured bridge into quantitative finance practice.</p>
+          </article>
+          <article class="card">
+            <h3>Solution</h3>
+            <p>A cohort-based programme built around simulation, model implementation, research notes, peer critique, and portfolio-grade artifacts.</p>
+          </article>
+          <article class="card">
+            <h3>Proof</h3>
+            <p>The website centers on one action: pilot applications, supported by a clear programme model and credibility signals rather than inflated startup language.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="container program-layout">
+        <div>
+          <span class="eyebrow">Core offer</span>
+          <h2>The first programme can launch with four modules.</h2>
+          <p class="muted" style="margin-bottom: var(--space-5);">A viable first version should stay narrow: one flagship track, one small cohort, and a visible output standard.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>01 — Foundations</strong>
+              <p class="muted">Probability, stochastic thinking, market microstructure intuition, Python environment setup.</p>
+            </div>
+            <div class="timeline-item">
+              <strong>02 — Modelling</strong>
+              <p class="muted">Time-series work, factor logic, derivative intuition, simulation and backtesting discipline.</p>
+            </div>
+            <div class="timeline-item">
+              <strong>03 — Verification</strong>
+              <p class="muted">Reproducible notebooks, technical write-ups, peer review, and oral defense of assumptions.</p>
+            </div>
+            <div class="timeline-item">
+              <strong>04 — Deployment readiness</strong>
+              <p class="muted">Project showcase, hiring dossier, and partner-facing evidence of practical competence.</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel" style="padding: var(--space-6);">
+          <span class="eyebrow">MVP funnel</span>
+          <ol class="steps" style="margin-top: var(--space-4);">
+            <li><span class="step-no">1</span><div><strong>Explain the institution.</strong><p class="muted">Hero section clarifies the gap between STEM training and quant practice.</p></div></li>
+            <li><span class="step-no">2</span><div><strong>Show the method.</strong><p class="muted">Programme section demonstrates computational verification and project-led assessment.</p></div></li>
+            <li><span class="step-no">3</span><div><strong>Qualify the applicant.</strong><p class="muted">Audience and pilot section filters for serious candidates instead of chasing mass traffic.</p></div></li>
+            <li><span class="step-no">4</span><div><strong>Capture demand.</strong><p class="muted">A pilot application CTA can be connected later to Typeform, Tally, Airtable, or a custom backend.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="audience">
+      <div class="container">
+        <span class="eyebrow">Target segments</span>
+        <h2>The website speaks to a narrow, serious audience.</h2>
+        <div class="audience-grid" style="margin-top: var(--space-6);">
+          <article class="card">
+            <h3>Primary users</h3>
+            <p>Engineering, mathematics, physics, computer science, and technically strong economics students who want a rigorous transition into quantitative finance.</p>
+          </article>
+          <article class="card">
+            <h3>Secondary buyers</h3>
+            <p>University partners, boutique funds, and regulated financial employers looking for a more credible signal than lightweight online certificates.</p>
+          </article>
+        </div>
+        <div class="quote" style="margin-top: var(--space-6);">
+          <p><strong>Positioning line:</strong> QuantLab Institute is not another finance content platform. It is a selective bridge institution for advanced technical talent that needs measurable proof of quant competence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pilot">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <span class="eyebrow" style="background: rgba(255,255,255,0.12); color: var(--color-text-inverse); border-color: rgba(255,255,255,0.16);">Pilot cohort</span>
+            <h2 style="margin-top: var(--space-4); margin-bottom: var(--space-3);">Launch with one cohort, one curriculum, one outcome standard.</h2>
+            <p>The next implementation step is simple: connect the application button to a form, add faculty or advisor credibility blocks, and publish 1–2 sample research projects as social proof.</p>
+          </div>
+          <div>
+            <a class="btn btn-secondary" href="mailto:admissions@quantlab.example" style="background: rgba(255,255,255,0.1); color: var(--color-text-inverse); border-color: rgba(255,255,255,0.24);">Start admissions workflow</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-line">
+      <span>QuantLab Institute — computation, rigor, verification.</span>
+      <span>Static MVP website ready for further integration.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', mode);
+      const renderIcon = () => {
+        toggle.innerHTML = mode === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      };
+      renderIcon();
+      toggle.addEventListener('click', () => {
+        mode = mode === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', mode);
+        renderIcon();
+      });
+    })();
+  </script>
+</body>
+</html>
